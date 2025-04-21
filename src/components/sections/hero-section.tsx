@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PaletteIcon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 function HeroSection() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -24,8 +27,8 @@ function HeroSection() {
   return (
     <div className="w-full">
       <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
-          <div className="flex gap-4 flex-col">
+        <div className="flex gap-8 py-32 lg:py-40 items-center justify-center flex-col">
+          <div className="flex gap-4 flex-col items-center">
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
               <span className="text-slate-200 dark:text-white/50">
                 Create something
@@ -56,12 +59,21 @@ function HeroSection() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
+            <p className="text-sm md:text-xl leading-tight tracking-tight text-muted-foreground max-w-3xl text-center w-96 sm:w-full">
               Express yourself through memes in seconds. Upload images, add
-              text, or let AI generate the perfect meme for you. With templates,
-              editing tools, and a global feed, Meme Lab is your one-stop
-              platform for creating and sharing content that gets noticed.
+              text, or let AI generate the perfect meme for you.
             </p>
+          </div>
+
+          <div className="flex flex-row gap-3">
+            <Link href={"#lab"}>
+              <Button
+                size="lg"
+                className="gap-2 bg-cyan-500 dark:bg-white dark:text-black text-white dark:hover:bg-white/90 hover:bg-cyan-600 cursor-pointer transition duration-200"
+              >
+                Start creating <PaletteIcon className="w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
