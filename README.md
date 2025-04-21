@@ -1,10 +1,14 @@
-![MemeLab Logo](https://media.discordapp.net/attachments/1313901914202832948/1363840781667795076/logo-memelab.png?ex=68077f35&is=68062db5&hm=b7f94551a12b787b502c9fe13c06013c2f26538052a52a00027c915ffd84ee71&=&format=webp&quality=lossless&width=60&height=100)
+<p align="center">
+  <img src="https://media.discordapp.net/attachments/1313901914202832948/1363840781667795076/logo-memelab.png?ex=68077f35&is=68062db5&hm=b7f94551a12b787b502c9fe13c06013c2f26538052a52a00027c915ffd84ee71&=&format=webp&quality=lossless&width=60&height=100" />
+</p>
 
 # Meme Lab
+
 A web app that allows you to create a meme through an image and text.
 Users authenticated can save their memes and view them later in their profile page and the global feed.
 
 ## Features
+
 - Create a meme through an image and text.
 - Download image on computer.
 - Add text to the image.
@@ -17,8 +21,8 @@ Users authenticated can save their memes and view them later in their profile pa
 - Ability to save a meme.
 - Ability to delete a meme.
 
-
 ## Tech Stack
+
 - Next.js
 - Tailwind CSS
 - Shadcn UI
@@ -27,6 +31,7 @@ Users authenticated can save their memes and view them later in their profile pa
 - OpenAI
 
 ## Getting Started
+
 First, run the development server:
 
 ```bash
