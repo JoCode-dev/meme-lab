@@ -4,6 +4,8 @@
 
 # Meme Lab
 
+[![](https://img.shields.io/badge/Live%20Demo-Meme%20Lab-000000.svg)](https://meme-lab.vercel.app/)
+
 A web app that allows you to create a meme through an image and text.
 
 ### (Next Version)
