@@ -22,5 +22,6 @@ export const createMeme = async (meme: Partial<Meme>) => {
       image_url: meme.image_url,
     },
   ]);
+
   return data;
 };
