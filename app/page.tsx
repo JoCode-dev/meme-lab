@@ -9,9 +9,9 @@ import { Suspense } from "react";
 
 export default async function Home() {
   const { memes } = await fetch(`${getUrl()}`, {
-    next: {
+    /* next: {
       revalidate: 0,
-    },
+    }, */
   }).then((res) => res.json());
 
   return (
