@@ -79,6 +79,11 @@ export const LabSection = () => {
     setMemeData(null);
     onClose();
     reset();
+
+    if (saved) {
+      router.push("/#memes-feed");
+      router.refresh();
+    }
   };
 
   return (

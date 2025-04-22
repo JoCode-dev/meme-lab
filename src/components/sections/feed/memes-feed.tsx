@@ -18,6 +18,7 @@ interface MemeFeedProps {
 export const MemesFeed = ({ memes }: MemeFeedProps) => {
   return (
     <div
+      id="memes-feed"
       className={cn(
         "grid gap-4 sm:gap-6",
         "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
