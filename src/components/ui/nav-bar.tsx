@@ -71,16 +71,6 @@ export const NavBar = () => {
 
             <div className="bg-transparent backdrop-blur-md in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
               <div className="flex w-full space-x-3 items-center justify-center">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="w-[85%] bg-transparent text-black dark:text-white font-semibold text-md"
-                >
-                  <Link href="/sign-in">
-                    <span>Login</span>
-                  </Link>
-                </Button>
                 <ModeToggle />
               </div>
             </div>

@@ -9,16 +9,20 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { generateImage } from "@/lib/ai";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SparklesIcon } from "lucide-react";
+import { Loader2, SparklesIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import useStore from "@/store";
+import { useState } from "react";
 
 const formSchema = z.object({
   text: z.string().min(1),
 });
 
 export const LabForm = () => {
+  const { setFiles } = useStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,8 +30,24 @@ export const LabForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
+    try {
+      const image = await generateImage(values.text);
+
+      const myFile = new File([image], "image.jpeg", {
+        type: image.type,
+      });
+
+      setFiles([myFile]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+      form.reset();
+    }
   };
 
   return (
@@ -45,7 +65,7 @@ export const LabForm = () => {
                 <FormControl>
                   <Input
                     placeholder="Create a meme with text..."
-                    className="w-full border-0 border-b border-gray-300 rounded-none placeholder:text-gray-300"
+                    className="w-full border-0 border-b border-gray-300 rounded-none placeholder:text-gray-300 text-black dark:text-white"
                     {...field}
                   />
                 </FormControl>
@@ -57,8 +77,13 @@ export const LabForm = () => {
             type="submit"
             size="icon"
             className="p-2 bg-cyan-500 hover:bg-cyan-600 transition-all duration-300 cursor-pointer"
+            disabled={isLoading}
           >
-            <SparklesIcon className="size-4" />
+            {isLoading ? (
+              <Loader2 className="size-4 animate-spin" />
+            ) : (
+              <SparklesIcon className="size-4" />
+            )}
           </Button>
         </form>
       </Form>

@@ -5,6 +5,7 @@
 # Meme Lab
 
 A web app that allows you to create a meme through an image and text.
+### (Next Version)
 Users authenticated can save their memes and view them later in their profile page and the global feed.
 
 ## Features
@@ -15,6 +16,7 @@ Users authenticated can save their memes and view them later in their profile pa
 - Generate meme through AI.
 - Real time edit of the image.
 - Share meme on social media.
+### (Next Version)
 - View all memes in the global feed.
 - View a meme.
 - Ability to like and comment on a meme.
