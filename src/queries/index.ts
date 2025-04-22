@@ -2,7 +2,10 @@ import { createClient } from "@/lib/supabase/client";
 
 export const getMemes = async (): Promise<Meme[]> => {
   const supabase = createClient();
-  const { data } = await supabase.from("memes").select("*");
+  const { data } = await supabase
+    .from("memes")
+    .select("*")
+    .order("created_at", { ascending: false });
   return data || [];
 };
 
