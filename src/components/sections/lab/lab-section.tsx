@@ -17,6 +17,17 @@ import { LabForm } from "./lab-form";
 import { LabTools } from "./lab-tools";
 import { MemeForm, type memeFormSchema } from "./meme-form";
 
+// Créer une route d'API simple pour revalider
+async function revalidateHomePage() {
+  try {
+    const response = await fetch('/api/revalidate', { method: 'POST' });
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to revalidate:', error);
+    return null;
+  }
+}
+
 export const LabSection = () => {
   const { reset } = useStore();
   const router = useRouter();
@@ -60,6 +71,9 @@ export const LabSection = () => {
 
       setSaved(true);
       router.refresh();
+      
+      // Essayer de revalider les données via l'API
+      await revalidateHomePage();
     } catch (error) {
       console.error("Error saving meme:", error);
       toast.error("Error saving meme");
@@ -79,10 +93,13 @@ export const LabSection = () => {
     setMemeData(null);
     onClose();
     reset();
-
+    
     if (saved) {
-      router.push("/#memes-feed");
-      router.refresh();
+      // Revalider avant de rediriger
+      revalidateHomePage().then(() => {
+        router.push("/#memes-feed");
+        router.refresh();
+      });
     }
   };
 
