@@ -3,7 +3,6 @@ import { MemesFeed } from "@/components/sections/feed/memes-feed";
 import { HeroSection } from "@/components/sections/hero-section";
 import { LabSection } from "@/components/sections/lab/lab-section";
 import { NavBar } from "@/components/ui/nav-bar";
-import { getMemes } from "@/queries";
 import type { Meme } from "@/types";
 import { Suspense } from "react";
 

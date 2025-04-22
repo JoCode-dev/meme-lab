@@ -2,7 +2,7 @@ import { getMemes } from "@/queries";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET() {
   const memes = await getMemes();
   revalidatePath("/");
   return NextResponse.json({ memes });
