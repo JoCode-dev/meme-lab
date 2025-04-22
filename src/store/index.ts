@@ -1,5 +1,5 @@
-import { create } from "zustand";
 import type { ShapeOpts } from "@/types";
+import { create } from "zustand";
 
 export interface State {
   files: File[];
@@ -23,7 +23,7 @@ const initialState: State = {
   selectedShapeId: null,
 };
 
-const useStore = create<State & Actions>((set, get) => ({
+const useStore = create<State & Actions>((set) => ({
   ...initialState,
   setFiles: (files: File[]) => set({ files }),
   addShape: (shape: ShapeOpts) =>

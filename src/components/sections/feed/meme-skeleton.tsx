@@ -1,18 +1,20 @@
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 
 export const MemeSkeleton = () => {
   return (
-    <Card className={cn(
-      "overflow-hidden h-full flex flex-col",
-      "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800",
-    )}>
+    <Card
+      className={cn(
+        "overflow-hidden h-full flex flex-col",
+        "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800"
+      )}
+    >
       <CardHeader className="pb-0 pt-3 px-3 sm:px-4">
         <Skeleton className="h-5 sm:h-6 w-3/4" />
       </CardHeader>
@@ -37,11 +39,13 @@ export const MemeSkeleton = () => {
 
 export const MemeSkeletonGrid = () => {
   return (
-    <div className={cn(
-      "grid gap-4 sm:gap-6",
-      "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-      "w-full"
-    )}>
+    <div
+      className={cn(
+        "grid gap-4 sm:gap-6",
+        "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+        "w-full"
+      )}
+    >
       {Array.from({ length: 8 }).map((_, index) => (
         <MemeSkeleton key={index} />
       ))}

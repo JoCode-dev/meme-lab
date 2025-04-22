@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import useStore from "@/store";
 import { motion } from "framer-motion";
 import { UploadIcon } from "lucide-react";
 import { useDropzone } from "react-dropzone";

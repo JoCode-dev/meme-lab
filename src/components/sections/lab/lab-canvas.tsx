@@ -2,16 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import useStore from "@/store";
 import { motion } from "framer-motion";
 import { XIcon } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 import { LabDragzone } from "./lab-dragzone";
-import useStore from "@/store";
 
-import { Stage, Layer, Image } from "react-konva";
+import { Image, Layer, Stage, Text } from "react-konva";
 import useImage from "use-image";
 import { CustomShape } from "./tools/custom-shape";
-import { Text } from "react-konva";
 
 interface ImageObject {
   url: string;
@@ -24,6 +24,7 @@ const URLImage = ({ image }: { image: ImageObject }) => {
   return (
     <Image
       image={img}
+      alt="Image"
       x={image.x}
       y={image.y}
       offsetX={img ? img.width / 2 : 0}
@@ -34,6 +35,7 @@ const URLImage = ({ image }: { image: ImageObject }) => {
 
 interface LabCanvasProps {
   onChange?: (files: File[]) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   stageRef: React.RefObject<any>;
 }
 
@@ -84,10 +86,11 @@ export const LabCanvas = ({ onChange, stageRef }: LabCanvasProps) => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const handleStageClick = (e: any) => {
+  const handleStageClick = () => {
     deselectShape();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderShape = (shape: any) => {
     const isSelected = selectedShapeId === shape.id;
 
@@ -113,7 +116,6 @@ export const LabCanvas = ({ onChange, stageRef }: LabCanvasProps) => {
               useStore.getState().transformShape(shape.id, updatedProps);
             }
           }}
-          onDelete={() => useStore.getState().deleteShape(shape.id)}
         >
           <Text {...textProps} x={0} y={0} />
         </CustomShape>

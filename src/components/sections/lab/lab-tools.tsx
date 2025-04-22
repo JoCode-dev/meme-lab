@@ -3,33 +3,30 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import useStore from "@/store";
-import Konva from "konva";
+import type Konva from "konva";
 import {
   Bold,
-  ImageIcon,
   Italic,
   SmilePlusIcon,
   StickerIcon,
   TextCursorIcon,
   TrashIcon,
   Underline,
-  X,
 } from "lucide-react";
-import { LabCarousel } from "./lab-carousel";
 
 import { Input } from "@/components/ui/input";
-import { cn, genID } from "@/lib/utils";
-import type { ShapeOpts } from "@/types";
-import { useEffect, useState, useRef } from "react";
-import { Text } from "react-konva";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { AnimatePresence, motion } from "framer-motion";
 import { Label } from "@/components/ui/label";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { cn, genID } from "@/lib/utils";
+import type { ShapeOpts } from "@/types";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Text } from "react-konva";
 
 interface LabToolsProps {
   saveMeme: () => void;
@@ -264,7 +261,7 @@ export const LabTools = ({ saveMeme }: LabToolsProps) => {
 
   // Handle font size change
   const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newSize = parseInt(e.target.value);
+    const newSize = Number.parseInt(e.target.value);
     setFontSize(newSize);
 
     if (selectedShape && selectedShape.type === "text") {
@@ -276,7 +273,7 @@ export const LabTools = ({ saveMeme }: LabToolsProps) => {
 
   // Handle emoji size change
   const handleEmojiSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newSize = parseInt(e.target.value);
+    const newSize = Number.parseInt(e.target.value);
     setEmojiSize(newSize);
   };
 

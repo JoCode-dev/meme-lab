@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import type Konva from "konva";
+import React, { useEffect, useRef } from "react";
 import { Group, Transformer } from "react-konva";
-import Konva from "konva";
 
 interface CustomShapeProps {
   id: string;
@@ -11,7 +11,6 @@ interface CustomShapeProps {
   shapeProps: Konva.ShapeConfig;
   onSelect: (id: string) => void;
   onChange: (newProps: Konva.ShapeConfig) => void;
-  onDelete: () => void;
   children: React.ReactNode;
 }
 
@@ -22,10 +21,12 @@ export const CustomShape = ({
   shapeProps,
   onSelect,
   onChange,
-  onDelete,
   children,
 }: CustomShapeProps) => {
+  // Allow any type for the ref
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const shapeRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const trRef = useRef<any>(null);
 
   // Handle text specifically
@@ -56,7 +57,7 @@ export const CustomShape = ({
     }
   }, [isSelected, id, type]);
 
-  const handleSelect = (e: any) => {
+  const handleSelect = (e: Konva.KonvaEventObject<Event>) => {
     e.cancelBubble = true; // Stop propagation
     onSelect(id);
   };
@@ -83,7 +84,7 @@ export const CustomShape = ({
             y: e.target.y(),
           });
         }}
-        onTransformEnd={(e) => {
+        onTransformEnd={() => {
           // Update the shape props with the new width and height
           const node = shapeRef.current;
           const scaleX = node.scaleX();

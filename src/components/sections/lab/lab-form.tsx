@@ -2,20 +2,20 @@
 
 import { Button } from "@/components/ui/button";
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { generateImage } from "@/lib/ai";
+import useStore from "@/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, SparklesIcon } from "lucide-react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import useStore from "@/store";
-import { useState } from "react";
 
 const formSchema = z.object({
   text: z.string().min(1),

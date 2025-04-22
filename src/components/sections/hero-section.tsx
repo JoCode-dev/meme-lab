@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { PaletteIcon } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
 function HeroSection() {
   const [titleNumber, setTitleNumber] = useState(0);

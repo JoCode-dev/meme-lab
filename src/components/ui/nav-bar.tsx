@@ -1,27 +1,12 @@
 "use client";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
-import React from "react";
 // import { useAuth } from "@/context/auth-context";
 import { ModeToggle } from "@/components/theme/mode-toggle";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-
-const menuItems = [
-  { name: "Features", href: "#features" },
-  { name: "Solutions", href: "#solutions" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Resources", href: "#resources" },
-  { name: "Enterprise", href: "#enterprise" },
-];
+import React from "react";
 
 export const NavBar = () => {
   //   const { user } = useAuth();

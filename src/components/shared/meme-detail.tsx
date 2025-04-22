@@ -1,10 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Download, Facebook, Instagram, Twitter } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 import { cn, downloadURI } from "@/lib/utils";
+import { Download, Facebook, Instagram, Twitter } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface MemeDetailProps {
   name: string;
@@ -69,7 +69,10 @@ export const MemeDetail = ({
               size="sm"
               className="flex items-center justify-center aspect-square p-0 h-8 w-8 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 cursor-pointer transition-colors"
             >
-              <Facebook size={14} className="text-gray-800 dark:text-gray-200" />
+              <Facebook
+                size={14}
+                className="text-gray-800 dark:text-gray-200"
+              />
             </Button>
           </Link>
           <Link
@@ -81,7 +84,10 @@ export const MemeDetail = ({
               size="sm"
               className="flex items-center justify-center aspect-square p-0 h-8 w-8 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 cursor-pointer transition-colors"
             >
-              <Instagram size={14} className="text-gray-800 dark:text-gray-200" />
+              <Instagram
+                size={14}
+                className="text-gray-800 dark:text-gray-200"
+              />
             </Button>
           </Link>
         </div>
@@ -93,16 +99,20 @@ export const MemeDetail = ({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full">
       {/* Left side - Meme image */}
       <div className="flex justify-center items-center border rounded-lg p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 overflow-hidden">
-        <img
+        <Image
           src={imageUrl}
           alt={name}
-          className="max-w-full max-h-[200px] sm:max-h-[300px] object-contain"
+          className="w-full h-full object-contain"
+          width={500}
+          height={500}
         />
       </div>
 
       {/* Right side - Info and actions */}
       <div className="flex flex-col space-y-3 sm:space-y-4">
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">{name}</h3>
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
+          {name}
+        </h3>
 
         <div className="space-y-3">
           <Button
@@ -115,7 +125,7 @@ export const MemeDetail = ({
             size="lg"
             onClick={handleDownload}
           >
-            <Download size={18} /> 
+            <Download size={18} />
             Download
           </Button>
 
@@ -133,7 +143,10 @@ export const MemeDetail = ({
                 size="sm"
                 className="flex items-center gap-1 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 cursor-pointer transition-colors"
               >
-                <Twitter size={16} className="text-gray-800 dark:text-gray-200" />
+                <Twitter
+                  size={16}
+                  className="text-gray-800 dark:text-gray-200"
+                />
                 <span className="hidden xs:inline">Twitter</span>
               </Button>
             </Link>
@@ -146,7 +159,10 @@ export const MemeDetail = ({
                 size="sm"
                 className="flex items-center gap-1 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 cursor-pointer transition-colors"
               >
-                <Facebook size={16} className="text-gray-800 dark:text-gray-200" />
+                <Facebook
+                  size={16}
+                  className="text-gray-800 dark:text-gray-200"
+                />
                 <span className="hidden xs:inline">Facebook</span>
               </Button>
             </Link>
@@ -159,7 +175,10 @@ export const MemeDetail = ({
                 size="sm"
                 className="flex items-center gap-1 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 cursor-pointer transition-colors"
               >
-                <Instagram size={16} className="text-gray-800 dark:text-gray-200" />
+                <Instagram
+                  size={16}
+                  className="text-gray-800 dark:text-gray-200"
+                />
                 <span className="hidden xs:inline">Instagram</span>
               </Button>
             </Link>

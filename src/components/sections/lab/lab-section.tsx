@@ -1,27 +1,26 @@
 "use client";
 
 import { ResponsiveModal } from "@/components/responsive-modal";
-import { Button } from "@/components/ui/button";
+import { MemeDetail } from "@/components/shared/meme-detail";
 import { base64ToFile } from "@/lib/supabase/file";
 import { uploadFile } from "@/lib/supabase/upload";
-import { downloadURI } from "@/lib/utils";
+import { cn, downloadURI } from "@/lib/utils";
 import { createMeme } from "@/queries";
 import useStore from "@/store";
 import useModalStore from "@/store/modal-store";
 import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { toast } from "sonner";
-import { z } from "zod";
+import type { z } from "zod";
 import { LabCanvas } from "./lab-canvas";
 import { LabForm } from "./lab-form";
 import { LabTools } from "./lab-tools";
-import { MemeForm, memeFormSchema } from "./meme-form";
-import { MemeDetail } from "@/components/shared/meme-detail";
-import { cn } from "@/lib/utils";
+import { MemeForm, type memeFormSchema } from "./meme-form";
 
 export const LabSection = () => {
   const { reset } = useStore();
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stageRef = useRef<any>(null);
   const { isOpen, onOpen, onClose } = useModalStore();
   const [isLoading, setIsLoading] = useState(false);

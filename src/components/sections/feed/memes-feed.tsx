@@ -1,6 +1,6 @@
 "use client";
 
-import { type Meme } from "@/types";
+import { MemeDetail } from "@/components/shared/meme-detail";
 import {
   Card,
   CardContent,
@@ -8,9 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { formatDate } from "@/lib/utils";
-import { MemeDetail } from "@/components/shared/meme-detail";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
+import type { Meme } from "@/types";
 
 interface MemeFeedProps {
   memes: Meme[];
@@ -18,18 +17,20 @@ interface MemeFeedProps {
 
 export const MemesFeed = ({ memes }: MemeFeedProps) => {
   return (
-    <div className={cn(
-      "grid gap-4 sm:gap-6",
-      "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-      "w-full"
-    )}>
+    <div
+      className={cn(
+        "grid gap-4 sm:gap-6",
+        "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+        "w-full"
+      )}
+    >
       {memes.map((meme) => (
-        <Card 
-          key={meme.id} 
+        <Card
+          key={meme.id}
           className={cn(
             "overflow-hidden h-full flex flex-col",
             "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800",
-            "transition-all duration-200 hover:shadow-md",
+            "transition-all duration-200 hover:shadow-md"
           )}
         >
           <CardHeader className="pb-0 pt-3 px-3 sm:px-4">
@@ -38,11 +39,7 @@ export const MemesFeed = ({ memes }: MemeFeedProps) => {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow p-3 sm:p-4">
-            <MemeDetail
-              name={meme.name}
-              imageUrl={meme.image_url}
-              compact
-            />
+            <MemeDetail name={meme.name} imageUrl={meme.image_url} compact />
           </CardContent>
           <CardFooter className="py-2 px-3 sm:px-4 text-xs sm:text-sm text-muted-foreground border-t border-gray-100 dark:border-gray-800">
             {formatDate(meme.created_at)}
