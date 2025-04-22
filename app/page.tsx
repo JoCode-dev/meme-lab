@@ -1,3 +1,5 @@
+export const revalidate = 10; // seconds
+
 import { MemeSkeletonGrid } from "@/components/sections/feed/meme-skeleton";
 import { MemesFeed } from "@/components/sections/feed/memes-feed";
 import { HeroSection } from "@/components/sections/hero-section";
