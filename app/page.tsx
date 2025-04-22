@@ -8,7 +8,7 @@ import { getUrl } from "@/lib/utils";
 import { Suspense } from "react";
 
 export default async function Home() {
-  const { memes } = await fetch(`${getUrl()}/api`).then((res) => res.json());
+  const { memes } = await fetch(`${getUrl()}`).then((res) => res.json());
 
   return (
     <div className="flex flex-col bg-white dark:bg-black">
