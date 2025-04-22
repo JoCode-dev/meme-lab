@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ hostname: "pvmbbymkhkrvsbfybldi.supabase.co" }],
   },
-  cache: "no-store",
 };
 
 export default nextConfig;
