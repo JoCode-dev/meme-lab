@@ -7,7 +7,7 @@ export const generateImage = async (prompt: string) => {
     provider: "replicate",
     model: "black-forest-labs/Flux.1-dev",
     inputs: prompt,
-  })
+  });
 
   return image;
 };
