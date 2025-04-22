@@ -4,14 +4,11 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { LabSection } from "@/components/sections/lab/lab-section";
 import { NavBar } from "@/components/ui/nav-bar";
 import type { Meme } from "@/types";
+import { getUrl } from "@/lib/utils";
 import { Suspense } from "react";
 
 export default async function Home() {
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000";
-  const { memes } = await fetch(`${baseUrl}/api`).then((res) => res.json());
+  const { memes } = await fetch(`${getUrl()}/api`).then((res) => res.json());
 
   return (
     <div className="flex flex-col bg-white dark:bg-black">
