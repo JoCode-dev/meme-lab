@@ -38,16 +38,30 @@ Users authenticated can save their memes and view them later in their profile pa
 
 ## Getting Started
 
-First, run the development server:
+First provide the environment variables in the `.env.local` file.
 
 ```bash
-npm run dev
+cp .env.example .env.local
+```
+
+Edit the `.env.local` file with the correct environment variables.
+
+Install the dependencies:
+
+```bash
+npm install
 # or
-yarn dev
+yarn install
 # or
-pnpm dev
+pnpm install
 # or
-bun dev
+bun install
+```
+
+Run the development server:
+
+```bash
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
