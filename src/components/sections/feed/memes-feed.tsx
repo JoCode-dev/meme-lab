@@ -27,6 +27,7 @@ export const MemesFeed = ({ memes }: MemeFeedProps) => {
       {memes.map((meme) => (
         <Card
           key={meme.id}
+          id="meme-card"
           className={cn(
             "overflow-hidden h-full flex flex-col",
             "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800",

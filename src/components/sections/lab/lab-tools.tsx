@@ -365,6 +365,7 @@ export const LabTools = ({ saveMeme }: LabToolsProps) => {
         size="lg"
         onClick={handleAddText}
         disabled={files.length === 0}
+        id="text-tool"
       >
         Add Text <TextCursorIcon className="w-4 h-4" />
       </Button>

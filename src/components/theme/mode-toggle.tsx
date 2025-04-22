@@ -14,6 +14,7 @@ export function ModeToggle() {
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="bg-transparent hover:bg-transparent"
+      id="theme-toggle"
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 text-black scale-100 transition-all dark:-rotate-90 dark:scale-0 duration-300" />
       <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 duration-300" />
