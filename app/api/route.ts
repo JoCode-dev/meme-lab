@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const memes = await getMemes();
+  const data = await getMemes();
   revalidatePath("/");
-  return NextResponse.json({ memes });
+  return NextResponse.json({ data });
 }
