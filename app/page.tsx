@@ -23,7 +23,7 @@ export default async function Home() {
       <section className="w-full max-w-7xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold mb-8 text-center">Memes Gallery</h2>
         <Suspense fallback={<MemeSkeletonGrid />}>
-          <MemesFeed memes={memes as unknown as Meme[]} />
+          <MemesFeed initialMemes={memes as unknown as Meme[]} />
         </Suspense>
       </section>
     </div>

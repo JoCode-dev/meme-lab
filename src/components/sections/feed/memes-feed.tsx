@@ -9,13 +9,28 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn, formatDate } from "@/lib/utils";
+import useMemesStore from "@/store/memes-store";
 import type { Meme } from "@/types";
+import { useEffect } from "react";
 
 interface MemeFeedProps {
-  memes: Meme[];
+  initialMemes?: Meme[];
 }
 
-export const MemesFeed = ({ memes }: MemeFeedProps) => {
+export const MemesFeed = ({ initialMemes = [] }: MemeFeedProps) => {
+  const { memes, fetchMemes } = useMemesStore();
+
+  // Initialiser les memes avec les données initiales et les mises à jour
+  useEffect(() => {
+    // Si le store a déjà des memes, on suppose qu'il a été mis à jour par un ajout récent
+    if (memes.length === 0 && initialMemes.length > 0) {
+      useMemesStore.setState({ memes: initialMemes });
+    } else if (memes.length === 0) {
+      // Sinon, on charge les memes depuis le serveur
+      fetchMemes();
+    }
+  }, [initialMemes, memes.length, fetchMemes]);
+
   return (
     <div
       id="memes-feed"
