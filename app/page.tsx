@@ -1,5 +1,3 @@
-export const revalidate = 10; // seconds
-
 import { MemeSkeletonGrid } from "@/components/sections/feed/meme-skeleton";
 import { MemesFeed } from "@/components/sections/feed/memes-feed";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -10,7 +8,11 @@ import type { Meme } from "@/types";
 import { Suspense } from "react";
 
 export default async function Home() {
-  const memes = await getMemes();
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_BASE_URL
+      : "http://localhost:3000";
+  const { memes } = await fetch(`${baseUrl}/api`).then((res) => res.json());
 
   return (
     <div className="flex flex-col bg-white dark:bg-black">
